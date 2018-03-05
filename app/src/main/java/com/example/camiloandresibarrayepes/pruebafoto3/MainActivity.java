@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 try {
-                    Bitmap bitmap = ImageLoader.init().from(selectedPhoto).requestSize(1024, 1024).getBitmap();
+                    Bitmap bitmap = ImageLoader.init().from(selectedPhoto).requestSize(200, 200).getBitmap();
                     String encodedImage = ImageBase64.encode(bitmap);
                     Log.d(TAG, encodedImage);
 
@@ -110,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),
                                         "ENVIADO CON EXITO", Toast.LENGTH_SHORT).show();
                             }else{
+                                progressDialog.dismiss();
                                 //TODO
                                 //Change text, error por exito
                                 Toast.makeText(getApplicationContext(),
@@ -120,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                     });
 
                     task.execute("https://addaprueba.000webhostapp.com/connection.php");
-                    progressDialog.setMessage("Enviando tu denuncia, por favor espera, puede tardar unos segundos...");
+                    progressDialog.setMessage("Enviando tu denuncia, por favor espera, puede tardar unos segundos   ...");
                     progressDialog.show();
                     task.setEachExceptionsHandler(new EachExceptionsHandler() {
                         @Override
@@ -165,7 +166,8 @@ public class MainActivity extends AppCompatActivity {
                 selectedPhoto = photoPath;
                 try {
                     Bitmap bitmap = ImageLoader.init().from(photoPath).requestSize(512, 512).getBitmap();
-                    ivImage.setImageBitmap(getRotateBitmap(bitmap, 90));
+                    ivImage.setImageBitmap(bitmap);
+                    //ivImage.setImageBitmap(getRotateBitmap(bitmap, 90));
                 } catch (FileNotFoundException e) {
                     Toast.makeText(getApplicationContext(),
                             "SALIO ALGO MAL SUBIENDO LAS FOTOS", Toast.LENGTH_SHORT).show();
@@ -190,10 +192,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*
     private Bitmap getRotateBitmap(Bitmap source, int angle){
         Matrix matrix = new Matrix();
         matrix.postRotate(angle);
         Bitmap bitmap1 = Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
         return bitmap1;
-    }
+    }*/
 }
