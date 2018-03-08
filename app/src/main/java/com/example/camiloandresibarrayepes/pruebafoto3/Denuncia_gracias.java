@@ -18,6 +18,7 @@ public class Denuncia_gracias extends AppCompatActivity {
 
         Intent intent = new Intent(getApplicationContext(), Main2Activity.class)/*.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)*/;
         startActivity(intent);
+        finish();
     }
 
 }

@@ -181,6 +181,7 @@ public class MainActivity extends AppCompatActivity {
                                         //Open Gracias Activity
                                         Intent intent = new Intent(getApplicationContext(), Denuncia_gracias.class)/*.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)*/;
                                         startActivity(intent);
+                                        finish();
                             }else{
                                 //TODO
                                 //Change text, error por exito

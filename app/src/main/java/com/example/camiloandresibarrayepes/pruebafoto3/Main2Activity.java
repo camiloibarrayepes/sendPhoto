@@ -25,5 +25,23 @@ public class Main2Activity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void se_parte(View view) {
+
+        Intent intent = new Intent(getApplicationContext(), se_parte.class)/*.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)*/;
+        startActivity(intent);
+    }
+
+    public void llamadas(View view) {
+
+        Intent intent = new Intent(getApplicationContext(), llamadas.class)/*.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)*/;
+        startActivity(intent);
+    }
+
+    public void usar_adda(View view) {
+
+        Intent intent = new Intent(getApplicationContext(), Mas_info.class)/*.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)*/;
+        startActivity(intent);
+    }
+
 
 }

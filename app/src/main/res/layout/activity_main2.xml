@@ -8,8 +8,8 @@
     android:background="@drawable/fondo_adda_3">
 
     <AbsoluteLayout
-        android:layout_width="322dp"
-        android:layout_height="493dp"
+        android:layout_width="314dp"
+        android:layout_height="558dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -38,6 +38,7 @@
             android:layout_x="168dp"
             android:layout_y="183dp"
             android:background="@drawable/op2"
+            android:onClick="se_parte"
             tools:layout_editor_absoluteX="71dp"
             tools:layout_editor_absoluteY="206dp" />
 
@@ -47,8 +48,8 @@
             android:layout_height="150dp"
             android:layout_x="0dp"
             android:layout_y="349dp"
-            android:onClick="button_info"
             android:background="@drawable/op3"
+            android:onClick="button_info"
             tools:layout_editor_absoluteX="71dp"
             tools:layout_editor_absoluteY="206dp" />
 
@@ -74,7 +75,22 @@
             tools:layout_editor_absoluteX="71dp"
             tools:layout_editor_absoluteY="206dp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_x="0dp"
+            android:layout_y="529dp"
+            android:gravity="center"
+            android:paddingTop="10sp"
+            android:text="Acerca de Adda"
+            android:onClick="usar_adda"
+            android:textColor="@color/colorWhite" />
+
     </AbsoluteLayout>
 
 
+
+
 </android.support.constraint.ConstraintLayout>
+
+

@@ -42,7 +42,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Denuncia_gracias" />
-        <activity android:name=".info_adda"></activity>
+        <activity android:name=".info_adda" />
+        <activity android:name=".se_parte" />
+        <activity android:name=".llamadas" />
+        <activity android:name=".Mas_info"></activity>
     </application>
 
 </manifest>
