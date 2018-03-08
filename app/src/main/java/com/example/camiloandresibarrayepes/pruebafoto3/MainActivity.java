@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.app.ProgressDialog;
@@ -39,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
 
-    ImageView ivCamera, ivGallery, ivImage, ivUpload;
+    ImageView ivCamera, ivGallery, ivImage;
+
+    Button ivUpload;
 
     CameraPhoto cameraPhoto;
 
@@ -123,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         ivCamera = (ImageView) findViewById(R.id.ivCamera);
         ivGallery = (ImageView) findViewById(R.id.ivGallery);
         ivImage = (ImageView) findViewById(R.id.ivImage);
-        ivUpload = (ImageView) findViewById(R.id.ivUpload);
+        ivUpload = (Button) findViewById(R.id.ivUpload);
 
         ivCamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,9 +153,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(selectedPhoto.equals("") || selectedPhoto == null){
+                if(selectedPhoto == null){
                     Toast.makeText(getApplicationContext(),
-                            "NO HAY IMAGEN", Toast.LENGTH_SHORT).show();
+                            "Debes tomar una foto de tu denuncia", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -174,18 +177,21 @@ public class MainActivity extends AppCompatActivity {
                             if(s.contains("upload_success")){
                                 Toast.makeText(getApplicationContext(),
                                         "ENVIADO CON EXITO", Toast.LENGTH_SHORT).show();
+                                        progressDialog.dismiss();
+                                        //Open Gracias Activity
+                                        Intent intent = new Intent(getApplicationContext(), Denuncia_gracias.class)/*.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)*/;
+                                        startActivity(intent);
                             }else{
-                                progressDialog.dismiss();
                                 //TODO
                                 //Change text, error por exito
                                 Toast.makeText(getApplicationContext(),
-                                        "Imagen enviada", Toast.LENGTH_SHORT).show();
+                                        "Imagen no enviada", Toast.LENGTH_SHORT).show();
                             }
 
                         }
                     });
 
-                    task.execute("https://addaprueba.000webhostapp.com/connection.php");
+                    task.execute("http://yamgo.com.co/adda/connection.php");
                     progressDialog.setMessage("Enviando tu denuncia, por favor espera, puede tardar unos segundos   ...");
                     progressDialog.show();
                     task.setEachExceptionsHandler(new EachExceptionsHandler() {
